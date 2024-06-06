@@ -1,0 +1,130 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header {
+  width: 1280px;
+  height: 80px;
+  margin: 5px;
+  background: #0548cd;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header img {
+  width: 170px;
+}
+
+.buscadorContent {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 5px;
+}
+
+.buscadorContent .iconoBuscar {
+  width: 28px;
+  height: 28px;
+  margin-right: 5px;
+}
+
+.header input {
+  width: 600px;
+  height: 40px;
+  margin-left: 5px;
+  font-size: 18px;
+  border: none;
+}
+
+.header input:focus {
+  outline: none;
+}
+
+.contentMain {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 1000px;
+  height: 120px;
+  margin: 5px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #BCBCBC;
+}
+
+.title {
+  width: 400px;
+}
+
+.title h2 {
+  text-wrap: balance;
+}
+
+.imgCard {
+  width: 140px;
+  height: 80px;
+  overflow: hidden;
+  margin: 20px;
+  box-shadow: 2px 2px 5px;
+}
+
+.imgCard img {
+  width: 140px;
+  height: 80px;
+}
+
+.lugar {
+  width: 250px;
+}
+
+hr {
+  width: 50px;
+  height: 1px;
+  border: none;
+  transform: rotate(90deg);
+  background-color: #BCBCBC;
+}
+
+.btnBoletos {
+  display: flex;
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  background: #024DDF;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.btnBoletos:hover {
+  background: #0548cd ;
+}
+
+.btnBuscar {
+  width: 80px;
+  height: 46px;
+  background: #024DDF;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  margin-left: 5px;
+  border-radius: 5px;
+}
+
+.btnBuscar:hover {
+  background: #0548cd ;
+}
