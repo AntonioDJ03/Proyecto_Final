@@ -2,16 +2,19 @@
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
+  background-color: #0548cd; /* Fondo azul */
+  padding: 20px; /* Agregar un padding para separación */
 }
 
 .header {
-  width: 1280px;
+  width: 100%; /* Hacer que la cabecera ocupe todo el ancho */
   height: 80px;
-  margin: 5px;
+  margin: 5px 0;
   background: #0548cd;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  color: #fff; /* Texto blanco */
 }
 
 .header img {
@@ -21,8 +24,10 @@
 .buscadorContent {
   display: flex;
   align-items: center;
-  background: #fff;
+  background: #0548cd;
   padding: 5px;
+  border-radius: 5px;
+  position: relative; /* Para posicionar las sugerencias debajo del input */
 }
 
 .buscadorContent .iconoBuscar {
@@ -37,27 +42,67 @@
   margin-left: 5px;
   font-size: 18px;
   border: none;
+  border-radius: 5px;
+  position: relative;
 }
 
 .header input:focus {
   outline: none;
 }
 
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+  color: #000; /* Texto negro */
+}
+
+.suggestion {
+  padding: 10px;
+  cursor: pointer;
+  color: #000; /* Texto negro */
+}
+
+.suggestion:hover {
+  background: #f0f0f0;
+}
+
+.iconoCasa {
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
 .contentMain {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  border: 2px solid #0548cd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #fff; /* Fondo blanco */
+  color: #000; /* Texto negro */
 }
 
 .card {
   width: 1000px;
   height: 120px;
   margin: 5px;
-  background: #fff;
+  background: #fff; /* Fondo blanco */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #BCBCBC;
+  border-bottom: 1px solid #0548cd; /* Borde azul */
+  color: #000; /* Texto negro */
 }
 
 .title {
@@ -73,12 +118,17 @@
   height: 80px;
   overflow: hidden;
   margin: 20px;
-  box-shadow: 2px 2px 5px;
+  box-shadow: 2px 2px 5px #0548cd; /* Sombra azul */
+  transition: transform 0.3s ease; /* Transición suave */
+}
+
+.imgCard:hover {
+  transform: scale(1.2); /* Aumenta el tamaño de la imagen al pasar el cursor */
 }
 
 .imgCard img {
-  width: 140px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
 }
 
 .lugar {
@@ -90,7 +140,7 @@ hr {
   height: 1px;
   border: none;
   transform: rotate(90deg);
-  background-color: #BCBCBC;
+  background-color: #0548cd; /* Borde azul */
 }
 
 .btnBoletos {
@@ -128,3 +178,89 @@ hr {
 .btnBuscar:hover {
   background: #0548cd ;
 }
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #0548cd; /* Fondo azul */
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  color: #fff; /* Texto blanco */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btnBack {
+  background-color: #024DDF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.btnBack i {
+  margin-right: 5px;
+}
+
+.btnBack:hover {
+  background-color: #0548cd;
+}
+.statusIcon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 24px; /* Ajusta este valor según el tamaño deseado */
+}
+
+.statusIcon .fa-check-circle {
+  color: green;
+}
+
+.statusIcon .fa-times-circle {
+  color: red;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+}
+
+/* Otros estilos existentes */
+
+
+

@@ -1,29 +1,49 @@
-import { useState, useEffect } from "react"
- 
+import { useState, useEffect } from "react";
 
-export function useFetchEvents(url) {
-  const [data, setData] = useState(null)
-  //Fetch para buscar eventos proximos en Mexico
-  const getEventos = async() => {
+export function useFetchEvents(url, query, token) {
+  const [data, setData] = useState(null);
+  const [suggestions, setSuggestions] = useState([]);
+
+  const getEventos = async () => {
     await fetch(url)
       .then((response) => response.json())
-      .then(function (data){
-        var events = data._embedded.events
-        localStorage.setItem("events", JSON.stringify(events))
-        setData(events)
-        //console.log(events)
+      .then((data) => {
+        var events = data._embedded ? data._embedded.events : [];
+        localStorage.setItem("events", JSON.stringify(events));
+        setData(events);
       })
       .catch((error) => {
-        console.log(error)
-        var events = JSON.parse(localStorage.getItem("events"))
-        setData(events)
-      })
-  }
+        console.log(error);
+        var events = JSON.parse(localStorage.getItem("events")) || [];
+        setData(events);
+      });
+  };
 
-  useEffect( () => {
-    getEventos()
-    //getEventos()
- }, [url])
+  const getSuggestions = async () => {
+    if (query) {
+      const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${token}&keyword=${query}`;
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          const events = data._embedded ? data._embedded.events : [];
+          setSuggestions(events);
+        })
+        .catch((error) => {
+          console.log(error);
+          setSuggestions([]);
+        });
+    } else {
+      setSuggestions([]);
+    }
+  };
 
-  return {data}
-  }
+  useEffect(() => {
+    getEventos();
+  }, [url]);
+
+  useEffect(() => {
+    getSuggestions();
+  }, [query, token]);
+
+  return { data, suggestions };
+}
